@@ -104,37 +104,32 @@
     </div>
     <script src="game.js" w-tid="139"></script>
 
-    <script>
-    // Prevent WebSim script from loading
-    document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll("script.websim-injected").forEach((script) => script.remove());
+<script>
+  // Store the original attachShadow method
+  const originalAttachShadow = HTMLElement.prototype.attachShadow;
 
-        // Function to remove WebSim logo
-        function removeWebSimLogo() {
-            const logoContainer = document.getElementById("websim-logo-container");
-            if (logoContainer) {
-                logoContainer.remove();
-                console.log("WebSim logo removed.");
-            }
-        }
+  // Override the attachShadow method
+  HTMLElement.prototype.attachShadow = function (options) {
+    // Call the original attachShadow method to create the shadow DOM
+    const shadowRoot = originalAttachShadow.call(this, options);
 
-        // Run on page load in case it's already there
-        removeWebSimLogo();
+    // Store the original appendChild method of the shadowRoot
+    const originalAppendChild = shadowRoot.appendChild;
 
-        // Observe changes in the body to detect reinjection
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                mutation.addedNodes.forEach((node) => {
-                    if (node.id === "websim-logo-container") {
-                        removeWebSimLogo();
-                    }
-                });
-            });
-        });
+    // Override the appendChild method of the shadowRoot
+    shadowRoot.appendChild = function (node) {
+      // Check if the node being appended is the target element
+      if (node.id === 'websim-logo-container') {
+        // If it is, do nothing (prevent it from being added)
+        return node;
+      }
+      // Otherwise, call the original appendChild method to add the node
+      return originalAppendChild.call(this, node);
+    };
 
-        // Start observing the document body
-        observer.observe(document.body, { childList: true, subtree: true });
-    });
+    // Return the modified shadowRoot
+    return shadowRoot;
+  };
 </script>
 </body>
 </html>
