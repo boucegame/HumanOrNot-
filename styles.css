@@ -1,0 +1,411 @@
+:root {
+  --primary-color: #00ff00;
+  --secondary-color: #ff00ff;
+  --background-color: #080808;
+  --text-color: #33ff33;
+  --accent-color: #0077ff;
+  --error-color: #ff3333;
+  --success-color: #33ff33;
+  --button-color: #222222;
+  --shadow-color: rgba(0, 255, 0, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Press Start 2P', cursive;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.game-container {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  background-color: #000;
+  box-shadow: 0 0 20px var(--shadow-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.screen {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
+}
+
+.screen.active {
+  display: flex;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  text-shadow: 0 0 10px var(--shadow-color);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  text-shadow: 0 0 8px var(--shadow-color);
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  text-shadow: 0 0 5px var(--shadow-color);
+}
+
+.description {
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.player-info {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+
+.main-menu-progress {
+  display: none;
+}
+
+.crt-button {
+  background-color: var(--button-color);
+  color: var(--text-color);
+  border: 2px solid var(--primary-color);
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 10px;
+  box-shadow: 0 0 10px var(--shadow-color);
+  transition: all 0.2s ease;
+}
+
+.crt-button:hover {
+  background-color: var(--primary-color);
+  color: black;
+}
+
+.crt-button:active {
+  transform: scale(0.95);
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Chat Room Styles */
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 2px solid var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.chat-messages {
+  width: 100%;
+  height: 380px;
+  overflow-y: auto;
+  padding: 10px;
+  border: 2px solid var(--primary-color);
+  margin-bottom: 10px;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.user-message {
+  background-color: rgba(0, 255, 0, 0.2);
+  align-self: flex-end;
+  margin-left: auto;
+  border-left: 3px solid var(--primary-color);
+}
+
+.opponent-message {
+  background-color: rgba(0, 119, 255, 0.2);
+  align-self: flex-start;
+  border-left: 3px solid var(--accent-color);
+}
+
+.system-message {
+  background-color: rgba(255, 255, 255, 0.1);
+  text-align: center;
+  padding: 5px;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.chat-input {
+  display: flex;
+  width: 100%;
+}
+
+#message-input {
+  flex-grow: 1;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid var(--primary-color);
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+#message-input:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--shadow-color);
+}
+
+/* Matchmaking Styles */
+.loading-container {
+  width: 80%;
+  max-width: 400px;
+}
+
+.loading-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #222;
+  border: 2px solid var(--primary-color);
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px var(--shadow-color);
+  overflow: hidden;
+}
+
+.loading-progress {
+  height: 100%;
+  width: 0%;
+  background-color: var(--primary-color);
+  animation: loading 5s forwards linear;
+}
+
+@keyframes loading {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+.loading-text {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Decision and Result Screens */
+.decision-buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.level-progress-bar {
+  display: none;
+}
+
+.level-progress-fill {
+  display: none;
+}
+
+.next-level-info {
+  display: none;
+}
+
+/* How to Play Screen */
+.how-to-content {
+  text-align: left;
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+
+.how-to-content p {
+  margin-bottom: 15px;
+}
+
+/* CRT and Retro Effects */
+.scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.02) 50%,
+    rgba(0, 0, 0, 0.02)
+  );
+  background-size: 100% 4px;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.crt-effects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.3) 80%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  z-index: 3;
+  pointer-events: none;
+}
+
+.glitch {
+  position: relative;
+  animation: glitch-skew 1s infinite linear alternate-reverse;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  color: #ff00ff;
+  animation: glitch-anim 2s infinite linear alternate-reverse;
+  clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%);
+  transform: translateX(-2px);
+}
+
+.glitch::after {
+  color: #00ffff;
+  animation: glitch-anim2 1s infinite linear alternate-reverse;
+  clip-path: polygon(0 68%, 100% 68%, 100% 69%, 0 69%);
+  transform: translateX(2px);
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip-path: polygon(0 0%, 100% 0%, 100% 5%, 0 5%);
+    transform: translate(-5px, -3px);
+  }
+  20% {
+    clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+    transform: translate(-5px, 3px);
+  }
+  40% {
+    clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+    transform: translate(5px, -3px);
+  }
+  60% {
+    clip-path: polygon(0 80%, 100% 80%, 100% 85%, 0 85%);
+    transform: translate(5px, 3px);
+  }
+  80% {
+    clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+    transform: translate(-5px, 3px);
+  }
+  100% {
+    clip-path: polygon(0 70%, 100% 70%, 100% 75%, 0 75%);
+    transform: translate(5px, -3px);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+    transform: translate(5px, 3px);
+  }
+  50% {
+    clip-path: polygon(0 65%, 100% 65%, 100% 70%, 0 70%);
+    transform: translate(-5px, -3px);
+  }
+  100% {
+    clip-path: polygon(0 85%, 100% 85%, 100% 90%, 0 90%);
+    transform: translate(5px, 3px);
+  }
+}
+
+@keyframes glitch-skew {
+  0% {
+    transform: skew(0deg);
+  }
+  10% {
+    transform: skew(0.5deg);
+  }
+  20% {
+    transform: skew(-0.5deg);
+  }
+  30% {
+    transform: skew(0.5deg);
+  }
+  40% {
+    transform: skew(-0.5deg);
+  }
+  50% {
+    transform: skew(0.5deg);
+  }
+  60% {
+    transform: skew(0deg);
+  }
+  70% {
+    transform: skew(0.5deg);
+  }
+  80% {
+    transform: skew(-0.5deg);
+  }
+  90% {
+    transform: skew(0.5deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+.menu-content {
+  width: 100%;
+  max-width: 500px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
