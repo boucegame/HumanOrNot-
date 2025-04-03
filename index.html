@@ -103,5 +103,38 @@
         </div>
     </div>
     <script src="game.js" w-tid="139"></script>
+
+    <script>
+    // Prevent WebSim script from loading
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("script.websim-injected").forEach((script) => script.remove());
+
+        // Function to remove WebSim logo
+        function removeWebSimLogo() {
+            const logoContainer = document.getElementById("websim-logo-container");
+            if (logoContainer) {
+                logoContainer.remove();
+                console.log("WebSim logo removed.");
+            }
+        }
+
+        // Run on page load in case it's already there
+        removeWebSimLogo();
+
+        // Observe changes in the body to detect reinjection
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                mutation.addedNodes.forEach((node) => {
+                    if (node.id === "websim-logo-container") {
+                        removeWebSimLogo();
+                    }
+                });
+            });
+        });
+
+        // Start observing the document body
+        observer.observe(document.body, { childList: true, subtree: true });
+    });
+</script>
 </body>
 </html>
