@@ -505,33 +505,6 @@ function backToMainMenu() {
     ready: true
   });
 }
-
-// Function to remove the WebSim logo
-function removeWebSimLogo() {
-    const logoContainer = document.getElementById("websim-logo-container");
-    if (logoContainer) {
-        logoContainer.remove();
-        console.log("WebSim logo removed.");
-    }
-}
-
-// Run on page load in case it's already there
-removeWebSimLogo();
-
-// Observe changes in the body
-const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-            if (node.id === "websim-logo-container") {
-                removeWebSimLogo();
-            }
-        });
-    });
-});
-
-// Start observing the document body
-observer.observe(document.body, { childList: true, subtree: true });
-
 function showHowToPlay() {
   switchToScreen(screens.howToPlay);
 }
