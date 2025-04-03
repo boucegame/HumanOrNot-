@@ -506,6 +506,13 @@ function backToMainMenu() {
   });
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    const websimLogo = document.getElementById("websim-logo-container");
+    if (websimLogo) {
+        websimLogo.remove();
+    }
+});
+
 function showHowToPlay() {
   switchToScreen(screens.howToPlay);
 }
