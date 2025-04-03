@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" w-tid="1">
+<head w-tid="3">
+    
+<title>Human or AI?</title>
+<meta property="og:title" content="Human or AI?"/>
+<meta property="og:url" content="https://human-or-ai--majorsky6521006.on.websim.ai?v=7"/>
+<meta property="og:type" content="website"/>
+<meta property="twitter:card" content="summary_large_image"/>
+<meta property="og:image" content="https://images.websim.ai/v1/project/us7362w86okcjl2wmh56/revision/7/1200.jpeg"/>
+<meta property="twitter:image" content="https://images.websim.ai/v1/project/us7362w86okcjl2wmh56/revision/7/1200.jpeg"/>
+<link rel="stylesheet" href="https://api.websim.ai/fonts.css?v=518cd89302645b7fc7dcb350558252ae28129799">
+<link rel="stylesheet" href="https://api.websim.ai/ctxmenu.css?v=518cd89302645b7fc7dcb350558252ae28129799">
+<script class="websim-injected">__WEBSIM_DATA__={"home":false,"hostOrigin":"https://websim.ai","apiOrigin":"https://api.websim.ai","isTopLevelFrame":true,"project_id":"us7362w86okcjl2wmh56","route":{"type":"slug","username":"majorsky6521006","slug":"human-or-ai"}}</script>
+<script class="websim-injected" src="https://api.websim.ai/dist/index.js?v=518cd89302645b7fc7dcb350558252ae28129799"></script>
+<meta charset="UTF-8" w-tid="5"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" w-tid="7"/>
+    <!--title>Human or AI?</title-->
+    <link rel="stylesheet" href="styles.css" w-tid="11"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" w-tid="13"/>
+</head>
+<body w-tid="15">
+    <div class="game-container" w-tid="17">
+        <div id="main-menu" class="screen active" w-tid="19">
+            <div class="glitch-container" w-tid="21">
+                <h1 class="glitch" data-text="HUMAN OR AI?" w-tid="23">HUMAN OR AI?</h1>
+            </div>
+            <div class="menu-content" w-tid="25">
+                <p class="description" w-tid="27">Can you tell the difference between a human and an AI?</p>
+                <div class="player-info" w-tid="29">
+                    <div id="score-display" w-tid="31">SCORE: <span id="player-score" w-tid="33">0</span></div>
+                </div>
+                <div class="menu-buttons" w-tid="35">
+                    <button id="start-game" class="crt-button" w-tid="37">START GAME</button>
+                    <button id="how-to-play" class="crt-button" w-tid="39">HOW TO PLAY</button>
+                </div>
+            </div>
+            <div class="scanline" w-tid="41"></div>
+            <div class="crt-effects" w-tid="43"></div>
+        </div>
+
+        <div id="matchmaking" class="screen" w-tid="45">
+            <h2 w-tid="47">FINDING A MATCH...</h2>
+            <div class="loading-container" w-tid="49">
+                <div class="loading-bar" w-tid="51">
+                    <div class="loading-progress" w-tid="53"></div>
+                </div>
+                <div class="loading-text" w-tid="55">Connecting...</div>
+            </div>
+            <div class="scanline" w-tid="57"></div>
+            <div class="crt-effects" w-tid="59"></div>
+        </div>
+
+        <div id="chat-room" class="screen" w-tid="61">
+            <div class="chat-header" w-tid="63">
+                <div class="opponent-status" w-tid="65">CONNECTED</div>
+                <div class="timer" w-tid="67">TIME: <span id="time-left" w-tid="69">60</span>s</div>
+            </div>
+            <div class="chat-messages" id="message-container" w-tid="71">
+                <div class="system-message" w-tid="73">Connection established. You have 60 seconds to chat.</div>
+            </div>
+            <div class="chat-input" w-tid="75">
+                <input type="text" id="message-input" placeholder="Type your message..." w-tid="77"/>
+                <button id="send-message" class="crt-button" w-tid="79">SEND</button>
+            </div>
+            <div class="scanline" w-tid="81"></div>
+            <div class="crt-effects" w-tid="83"></div>
+        </div>
+
+        <div id="decision-screen" class="screen" w-tid="85">
+            <h2 w-tid="87">TIME'S UP!</h2>
+            <p class="question" w-tid="89">Was your chat partner:</p>
+            <div class="decision-buttons" w-tid="91">
+                <button id="choose-human" class="crt-button" w-tid="93">HUMAN</button>
+                <button id="choose-ai" class="crt-button" w-tid="95">AI</button>
+            </div>
+            <div class="scanline" w-tid="97"></div>
+            <div class="crt-effects" w-tid="99"></div>
+        </div>
+
+        <div id="result-screen" class="screen" w-tid="101">
+            <h2 id="result-title" w-tid="103">CORRECT!</h2>
+            <div id="result-details" w-tid="105">
+                <p w-tid="107">Your opponent was: <span id="opponent-type" w-tid="109">HUMAN</span></p>
+                <p id="points-earned" w-tid="111">+10 POINTS</p>
+            </div>
+            <button id="continue-button" class="crt-button" w-tid="113">CONTINUE</button>
+            <div class="scanline" w-tid="115"></div>
+            <div class="crt-effects" w-tid="117"></div>
+        </div>
+
+        <div id="how-to-play-screen" class="screen" w-tid="119">
+            <h2 w-tid="121">HOW TO PLAY</h2>
+            <div class="how-to-content" w-tid="123">
+                <p w-tid="125">1. You'll be connected with either an AI or another player.</p>
+                <p w-tid="127">2. Chat for 60 seconds.</p>
+                <p w-tid="129">3. Afterward, guess if you were chatting with a human or an AI.</p>
+                <p w-tid="131">4. Guess correctly to earn 10 points!</p>
+            </div>
+            <button id="back-to-menu" class="crt-button" w-tid="133">BACK</button>
+            <div class="scanline" w-tid="135"></div>
+            <div class="crt-effects" w-tid="137"></div>
+        </div>
+    </div>
+    <script src="game.js" w-tid="139"></script>
+</body>
+</html>
