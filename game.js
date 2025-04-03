@@ -506,10 +506,10 @@ function backToMainMenu() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const websimLogo = document.getElementById("websim-logo-container");
-    if (websimLogo) {
-        websimLogo.remove();
+document.addEventListener("DOMContentLoaded", function() {
+    const logoContainer = document.getElementById("websim-logo-container");
+    if (logoContainer) {
+        logoContainer.remove();
     }
 });
 
